@@ -17,14 +17,18 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/' , [\App\Http\Controllers\MainController::class, 'index']);
 
-Route::get('/categories', function () {
-   return view('categories');
-});
+Route::get('/categories' , [\App\Http\Controllers\MainController::class, 'categories']);
 
-Route::get('/mobiles/iphone_x_64', function () {
-   return view('product');
-});
+Route::get('/{category}' , [\App\Http\Controllers\MainController::class, 'category']);
+
+Route::get('/mobiles/{product?}' , [\App\Http\Controllers\MainController::class, 'product']);
+
+//Route::get('/categories', function () {
+//   return view('categories');
+//});
+//
+//Route::get('/mobiles/iphone_x_64', function () {
+//   return view('product');
+//});
