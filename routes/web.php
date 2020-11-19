@@ -17,18 +17,14 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Route::get('/' , [\App\Http\Controllers\MainController::class, 'index']);
+Route::get('/' , [\App\Http\Controllers\MainController::class, 'index'])->name('index');
 
-Route::get('/categories' , [\App\Http\Controllers\MainController::class, 'categories']);
+Route::get('/categories' , [\App\Http\Controllers\MainController::class, 'categories'])->name('categories');
 
-Route::get('/{category}' , [\App\Http\Controllers\MainController::class, 'category']);
+Route::get('/{category}' , [\App\Http\Controllers\MainController::class, 'category'])->name('category');
 
-Route::get('/mobiles/{product?}' , [\App\Http\Controllers\MainController::class, 'product']);
+Route::get('/{category}/{product?}' , [\App\Http\Controllers\MainController::class, 'product'])->name('product');
 
-//Route::get('/categories', function () {
-//   return view('categories');
-//});
-//
-//Route::get('/mobiles/iphone_x_64', function () {
-//   return view('product');
-//});
+Route::get('/basket' , [\App\Http\Controllers\MainController::class, 'basket'])->name('basket');
+
+Route::get('/basket/place' , [\App\Http\Controllers\MainController::class, 'basketPlace'])->name('basket-place');
